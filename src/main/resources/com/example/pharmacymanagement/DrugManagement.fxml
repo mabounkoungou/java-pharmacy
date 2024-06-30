@@ -53,9 +53,9 @@
         </GridPane>
 
         <!-- Table to view drugs -->
-        <TableView fx:id="drugTable" style="-fx-padding: 10; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+        <TableView fx:id="drugTable"  style="-fx-padding: 10; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); alignment:CENTER; ">
             <columns>
-                <TableColumn text="Drug ID" fx:id="drugIdColumn" prefWidth="100">
+                <TableColumn text="Drug ID" fx:id="drugIdColumn" prefWidth="100" >
                     <cellValueFactory>
                         <PropertyValueFactory property="drugId" />
                     </cellValueFactory>

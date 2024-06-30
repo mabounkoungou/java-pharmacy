@@ -20,11 +20,12 @@
     <left>
         <VBox spacing="20.0" style="-fx-background-color: #f0f0f0; -fx-padding: 20;">
             <children>
-                <Button text="Manage Drugs" onAction="#handleManageDrugs" prefWidth="200" style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                <Button text="Manage Suppliers" onAction="#handleManageSuppliers" prefWidth="200" style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                <Button text="Process Sales" onAction="#handleProcessSales" prefWidth="200" style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                <Button text="View Reports" onAction="#handleViewReports" prefWidth="200" style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                <Button text="Logout" onAction="#handleLogout" prefWidth="200" style="-fx-background-color: #B0B0B0; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                <Button fx:id="btnManageDrugs" text="Manage Drugs" onAction="#handleManageDrugs" prefWidth="200" style="-fx-base: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                <Button fx:id="btnManageSuppliers" text="Manage Suppliers" onAction="#handleManageSuppliers" prefWidth="200" style="-fx-base: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                <Button fx:id="btnProcessSales" text="Sales" onAction="#handleProcessSales" prefWidth="200" style="-fx-base: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                <Button fx:id="btnViewReports" text="Reports" onAction="#handleViewReports" prefWidth="200" style="-fx-base: #2E8B57; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                <Button fx:id="btnLogout" text="Logout" onAction="#handleLogout" prefWidth="200" style="-fx-base: red; -fx-text-fill: white; -fx-padding: 10; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
             </children>
         </VBox>
     </left>
