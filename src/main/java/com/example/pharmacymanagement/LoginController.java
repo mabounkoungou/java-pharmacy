@@ -34,9 +34,9 @@ public class LoginController {
     }
 
     private boolean authenticate(String username, String password) {
-        String url = "jdbc:mysql://sql3.freesqldatabase.com:3306/sql3717107";
-        String user = "sql3717107";
-        String dbPassword = "LfYg4sxsaU";
+        String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5718540";
+        String user = "sql5718540";
+        String dbPassword = "FmrdIXMIGJ";
 
         try (Connection conn = DriverManager.getConnection(url, user, dbPassword)) {
             String query = "SELECT * FROM users WHERE username = ? AND password = ?";

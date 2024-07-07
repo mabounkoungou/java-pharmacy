@@ -48,9 +48,9 @@ public class ReportViewController {
     }
 
     private void initializeDatabase() {
-        String url = "jdbc:mysql://sql3.freesqldatabase.com:3306/sql3717107";
-        String user = "sql3717107";
-        String password = "LfYg4sxsaU";
+        String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5718540";
+        String user = "sql5718540";
+        String password = "FmrdIXMIGJ";
 
         try {
             connection = DriverManager.getConnection(url, user, password);
