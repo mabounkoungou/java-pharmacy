@@ -18,6 +18,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import com.example.pharmacymanagement.Models.Report;
 
@@ -33,7 +35,7 @@ public class ReportViewController {
     private TableColumn<Report, String> reportNameColumn;
 
     @FXML
-    private TableColumn<Report, String> reportDateColumn;
+    private TableColumn<Report, LocalDate> reportDateColumn;
 
     @FXML
     private TableColumn<Report, String> reportDetailsColumn;
@@ -48,9 +50,9 @@ public class ReportViewController {
     }
 
     private void initializeDatabase() {
-        String url = "jdbc:mysql://sql3.freesqldatabase.com:3306/sql3717107";
-        String user = "sql3717107";
-        String password = "LfYg4sxsaU";
+        String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5718540";
+        String user = "sql5718540";
+        String password = "FmrdIXMIGJ";
 
         try {
             connection = DriverManager.getConnection(url, user, password);
@@ -82,7 +84,7 @@ public class ReportViewController {
             while (resultSet.next()) {
                 String reportId = resultSet.getString("reportId");
                 String reportName = resultSet.getString("reportName");
-                String reportDate = resultSet.getString("reportDate");
+                LocalDate reportDate = resultSet.getDate("reportDate").toLocalDate();
                 String reportDetails = resultSet.getString("reportDetails");
 
                 Report report = new Report(reportId, reportName, reportDate, reportDetails);
@@ -91,6 +93,47 @@ public class ReportViewController {
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert("Database Error", "Error loading reports from database", e.getMessage());
+        }
+    }
+
+    // Method to handle purchases
+    public void handlePurchase(String drugId, int quantityPurchased, double totalAmount) {
+        try {
+            // Update drug quantity in the database
+            String updateQuery = "UPDATE drugs SET quantity = quantity - ? WHERE drugId = ?";
+            PreparedStatement updateStatement = connection.prepareStatement(updateQuery);
+            updateStatement.setInt(1, quantityPurchased);
+            updateStatement.setString(2, drugId);
+            updateStatement.executeUpdate();
+
+            // Insert daily report into database
+            generateDailyReport(totalAmount);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Database Error", "Error handling purchase", e.getMessage());
+        }
+    }
+
+    private void generateDailyReport(double totalAmount) {
+        try {
+            LocalDate currentDate = LocalDate.now();
+            String reportName = "Daily Purchase Report";
+            String reportDetails = "Total Purchases: $" + totalAmount;
+            String insertQuery = "INSERT INTO reports (reportName, reportDate, reportDetails) VALUES (?, ?, ?)";
+            PreparedStatement insertStatement = connection.prepareStatement(insertQuery);
+            insertStatement.setString(1, reportName);
+            insertStatement.setString(2, currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            insertStatement.setString(3, reportDetails);
+            insertStatement.executeUpdate();
+
+            // Refresh report data to update the table
+            reportData.clear();
+            loadReportData();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Database Error", "Error generating daily report", e.getMessage());
         }
     }
 

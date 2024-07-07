@@ -56,16 +56,7 @@
                         <PropertyValueFactory property="saleId" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Drug ID" fx:id="drugIdColumn" prefWidth="100">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="drugId" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Customer ID" fx:id="customerIdColumn" prefWidth="100">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="customerId" />
-                    </cellValueFactory>
-                </TableColumn>
+
                 <TableColumn text="Quantity" fx:id="quantityColumn" prefWidth="100">
                     <cellValueFactory>
                         <PropertyValueFactory property="quantity" />
