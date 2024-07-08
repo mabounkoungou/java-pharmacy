@@ -9,7 +9,10 @@ module com.example.pharmacymanagement {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens com.example.pharmacymanagement to javafx.fxml;
+    opens com.example.pharmacymanagement.Models;
+
     exports com.example.pharmacymanagement;
 }
