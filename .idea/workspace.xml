@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d611df3-544b-4b49-b9d8-17367f166dd6" name="Changes" comment="Last Update and Finalisation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/DrugManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/DrugManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/PurchaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/ReportViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/ReportViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/SupplierManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/SupplierManagementController.java" afterDir="false" />
-    </list>
+    <list default="true" id="3d611df3-544b-4b49-b9d8-17367f166dd6" name="Changes" comment="Changing Remote Sql Database to Local Sql Databse" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -302,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723911555974</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changing Remote Sql Database to Local Sql Databse">
+      <option name="closed" value="true" />
+      <created>1723925197856</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723925197856</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -333,6 +334,7 @@
     <MESSAGE value="Fixing Routing Problem" />
     <MESSAGE value="Fixing  Db problems" />
     <MESSAGE value="Last Update and Finalisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last Update and Finalisation" />
+    <MESSAGE value="Changing Remote Sql Database to Local Sql Databse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing Remote Sql Database to Local Sql Databse" />
   </component>
 </project>
