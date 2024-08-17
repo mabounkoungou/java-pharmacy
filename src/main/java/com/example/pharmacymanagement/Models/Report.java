@@ -1,15 +1,17 @@
 package com.example.pharmacymanagement.Models;
 
+import java.time.LocalDate;
+
 public class Report {
     private String reportId;
     private String reportName;
     private String reportDate;
     private String reportDetails;
 
-    public Report(String reportId, String reportName, String reportDate, String reportDetails) {
+    public Report(String reportId, String reportName, LocalDate reportDate, String reportDetails) {
         this.reportId = reportId;
         this.reportName = reportName;
-        this.reportDate = reportDate;
+        this.reportDate = String.valueOf(reportDate);
         this.reportDetails = reportDetails;
     }
 

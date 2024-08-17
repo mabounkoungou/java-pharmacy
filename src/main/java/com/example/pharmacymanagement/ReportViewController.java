@@ -13,6 +13,14 @@ import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import com.example.pharmacymanagement.Models.Report;
 
 public class ReportViewController {
@@ -27,19 +35,32 @@ public class ReportViewController {
     private TableColumn<Report, String> reportNameColumn;
 
     @FXML
-    private TableColumn<Report, String> reportDateColumn;
+    private TableColumn<Report, LocalDate> reportDateColumn;
 
     @FXML
     private TableColumn<Report, String> reportDetailsColumn;
 
     private ObservableList<Report> reportData;
 
+    private Connection connection;
+
     public ReportViewController() {
         reportData = FXCollections.observableArrayList();
-        // Add sample data to the reportData list
-        reportData.add(new Report("1", "Monthly Sales", "2024-06-23", "Details about monthly sales..."));
-        reportData.add(new Report("2", "Supplier Report", "2024-06-22", "Details about suppliers..."));
-        reportData.add(new Report("3", "Customer Report", "2024-06-21", "Details about customers..."));
+        initializeDatabase();
+    }
+
+    private void initializeDatabase() {
+        String url = "jdbc:mysql://localhost:3306/java";
+        String user = "root";
+        String password = "";
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected to database!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Database Error", "Error connecting to the database", e.getMessage());
+        }
     }
 
     @FXML
@@ -49,7 +70,71 @@ public class ReportViewController {
         reportDateColumn.setCellValueFactory(new PropertyValueFactory<>("reportDate"));
         reportDetailsColumn.setCellValueFactory(new PropertyValueFactory<>("reportDetails"));
 
+        // Load data from database
+        loadReportData();
         reportTable.setItems(reportData);
+    }
+
+    private void loadReportData() {
+        try {
+            String query = "SELECT * FROM reports";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String reportId = resultSet.getString("reportId");
+                String reportName = resultSet.getString("reportName");
+                LocalDate reportDate = resultSet.getDate("reportDate").toLocalDate();
+                String reportDetails = resultSet.getString("reportDetails");
+
+                Report report = new Report(reportId, reportName, reportDate, reportDetails);
+                reportData.add(report);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Database Error", "Error loading reports from database", e.getMessage());
+        }
+    }
+
+    // Method to handle purchases
+    public void handlePurchase(String drugId, int quantityPurchased, double totalAmount) {
+        try {
+            // Update drug quantity in the database
+            String updateQuery = "UPDATE drugs SET quantity = quantity - ? WHERE drugId = ?";
+            PreparedStatement updateStatement = connection.prepareStatement(updateQuery);
+            updateStatement.setInt(1, quantityPurchased);
+            updateStatement.setString(2, drugId);
+            updateStatement.executeUpdate();
+
+            // Insert daily report into database
+            generateDailyReport(totalAmount);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Database Error", "Error handling purchase", e.getMessage());
+        }
+    }
+
+    private void generateDailyReport(double totalAmount) {
+        try {
+            LocalDate currentDate = LocalDate.now();
+            String reportName = "Daily Purchase Report";
+            String reportDetails = "Total Purchases: $" + totalAmount;
+            String insertQuery = "INSERT INTO reports (reportName, reportDate, reportDetails) VALUES (?, ?, ?)";
+            PreparedStatement insertStatement = connection.prepareStatement(insertQuery);
+            insertStatement.setString(1, reportName);
+            insertStatement.setString(2, currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            insertStatement.setString(3, reportDetails);
+            insertStatement.executeUpdate();
+
+            // Refresh report data to update the table
+            reportData.clear();
+            loadReportData();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Database Error", "Error generating daily report", e.getMessage());
+        }
     }
 
     @FXML
@@ -62,6 +147,15 @@ public class ReportViewController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+            showAlert("Navigation Error", "Error navigating to dashboard", e.getMessage());
         }
+    }
+
+    private void showAlert(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }
