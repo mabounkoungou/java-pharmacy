@@ -57,9 +57,9 @@ public class SupplierManagementController {
     }
 
     private void initializeDatabase() {
-        String url = "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5718540";
-        String user = "sql5718540";
-        String password = "FmrdIXMIGJ";
+        String url = "jdbc:mysql://localhost:3306/java";
+        String user = "root";
+        String password = "";
 
         try {
             connection = DriverManager.getConnection(url, user, password);

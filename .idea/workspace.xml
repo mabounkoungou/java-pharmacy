@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3d611df3-544b-4b49-b9d8-17367f166dd6" name="Changes" comment="Last Update and Finalisation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/DrugManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/DrugManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/PurchaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/PurchaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/ReportViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/ReportViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/SupplierManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pharmacymanagement/SupplierManagementController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +81,9 @@
     "accountId": "eee5a3f6-5b83-4e11-b1d4-53c4e6a5058b"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -104,7 +112,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.qodana"
+    "settings.editor.selected.configurable": "preferences.general"
   }
 }]]></component>
   <component name="Push.Settings">
@@ -286,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720404282185</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Last Update and Finalisation">
+      <option name="closed" value="true" />
+      <created>1723911555974</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723911555974</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

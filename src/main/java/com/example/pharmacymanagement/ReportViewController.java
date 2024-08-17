@@ -50,7 +50,7 @@ public class ReportViewController {
     }
 
     private void initializeDatabase() {
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://localhost:3306/java";
         String user = "root";
         String password = "";
 
